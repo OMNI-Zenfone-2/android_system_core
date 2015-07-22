@@ -50,6 +50,10 @@ LOCAL_SRC_FILES:= \
     vendor_init.c \
     watchdogd.cpp \
 
+ifneq ($(TARGET_IGNORE_RO_BOOT_SERIALNO),)
+LOCAL_CFLAGS += -DIGNORE_RO_BOOT_SERIALNO
+endif
+
 LOCAL_MODULE:= init
 LOCAL_C_INCLUDES += \
     system/extras/ext4_utils \
